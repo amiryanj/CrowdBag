@@ -1,0 +1,6 @@
+include(${CMAKE_CURRENT_LIST_DIR}/rvo2-targets.cmake)
+get_filename_component(RVO2_INCLUDE_DIR1 "${CMAKE_CURRENT_LIST_DIR}/../../include/" ABSOLUTE)
+get_filename_component(RVO2_INCLUDE_DIR2 "${CMAKE_CURRENT_LIST_DIR}/../../include/rvo2/" ABSOLUTE)
+set(RVO2_INCLUDE_DIRS ${RVO2_INCLUDE_DIR1} ${RVO2_INCLUDE_DIR2})
+include_directories(${RVO2_INCLUDE_DIRS})
+set(RVO2_LIBRARIES rvo2)

@@ -1,0 +1,435 @@
+/**
+ * @file main.cpp
+ * @author Teofilo Dutra
+ */
+
+#include <iostream>
+#include "Application.h"
+#include "definitions.h"
+#include <unistd.h>
+
+#define BUFFER_OFFSET( offset )   ((GLvoid*) (offset))
+
+#define SCREEN_WIDTH 700
+#define SCREEN_LENGTH 600
+
+struct Vertex
+{
+    vec4 position;
+    vec4 color;
+};
+
+// Vertices of a plane (two triangles) where the vision can be rendered for visualization purposes.
+vec4 renderedQuad[] = {
+    vec4(-1.0f, -1.0f, 1.0f, 1.0),
+    vec4(1.0f, -1.0f, 1.0f, 1.0),
+    vec4(-1.0f,  1.0f, 1.0f, 1.0),
+    vec4(-1.0f,  1.0f, 1.0f, 1.0),
+    vec4(1.0f, -1.0f, 1.0f, 1.0),
+    vec4(1.0f,  1.0f, 1.0f, 1.0)
+};
+
+vec4 renderedQuadColor[] = {
+    vec4(1.0f, 1.0f, 1.0f, 1.0),
+    vec4(1.0f, 1.0f, 1.0f, 1.0),
+    vec4(1.0f, 1.0f, 1.0f, 1.0),
+    vec4(1.0f, 1.0f, 1.0f, 1.0),
+    vec4(1.0f, 1.0f, 1.0f, 1.0),
+    vec4(1.0f, 1.0f, 1.0f, 1.0)
+};
+
+vec2 textcoord[] = {
+    vec2(0.0,0.0),
+    vec2(1.0,0.0),
+    vec2(0.0,1.0),
+    vec2(0.0,1.0),
+    vec2(1.0,0.0),
+    vec2(1.0,1.0)
+};
+
+const size_t CIRCLE_VERTICES = 20;
+const size_t CIRCLE_TOTAL_VERTICES = ((CIRCLE_VERTICES - 1) * 3);
+const size_t TRAIL_SIZE = 200;
+
+vec4 *m_agentsPositions;
+vec4 *m_agentsColors;
+Vertex *m_agentsTrails;
+
+vec4 m_circleVertices[CIRCLE_VERTICES];
+Vertex *m_vertices;
+Vertex m_directionLines[2];
+
+size_t m_verticesSize;
+size_t m_directionLinesSize;
+
+GLuint m_texture;
+GLint program[3];
+GLuint m_vao[3], m_buffer[3], m_matrix_loc[3], m_projection_loc[3];
+
+bool renderTrails = true;
+bool renderVision = true;
+
+/**
+ * Indexes of three programs. 
+ * SIM_PROGRAM = used for simulation. 
+ * VISION_PROGRAM = used to show the vision of one agent.
+ * TRAIL_PROGRAM = used to draw trails.
+ */
+enum {SIM_PROGRAM = 0, VISION_PROGRAM, TRAIL_PROGRAM};
+
+GLint m_agentsDataLocation, m_agentsColorLocation;
+
+Application *app;
+
+void createTriangle(size_t &vertexIndex, int a, int b, int c)
+{
+    m_vertices[vertexIndex].position = m_circleVertices[a];
+    vertexIndex++;
+    m_vertices[vertexIndex].position = m_circleVertices[b];
+    vertexIndex++;
+    m_vertices[vertexIndex].position = m_circleVertices[c];
+    vertexIndex++;
+}
+
+void createCircle()
+{
+    mFloat radius = 1.0f;
+    
+    m_directionLines[0].position = vec4(0.0f, 0.0f, 0.0f, 1.0f);
+    m_directionLines[0].color    = vec4(0, 1, 0, 1);
+    
+    m_directionLines[1].position = vec4(1.5f, 0.0f, 0.0f, 1.0f);
+    m_directionLines[1].color    = vec4(0, 1, 0, 1);
+    
+    m_circleVertices[0] = vec4(0, 0, 0, 1.0);
+    m_circleVertices[1] = vec4(radius, 0, 0, 1.0);
+    
+    mFloat angle = M_PI/(((CIRCLE_VERTICES - 1)/2.0));
+    mat4 rotationMatrix = glm::rotate(glm::degrees(angle), 0.0f, 1.0f, 0.0f);
+    
+    for (int i = 2; i < CIRCLE_VERTICES; i++)
+        m_circleVertices[i] = rotationMatrix * m_circleVertices[i-1];
+    
+    size_t vertexIndex = 0;
+    
+    for (int i=1; i<CIRCLE_VERTICES; i++)
+    {
+        if (i == CIRCLE_VERTICES - 1)
+            createTriangle(vertexIndex, 0, i, 1);
+        else
+            createTriangle(vertexIndex, 0, i, i+1);
+    }
+}
+
+void init()
+{
+    app = new Application();
+    
+    app->prepareWorld();
+    
+    m_verticesSize = CIRCLE_TOTAL_VERTICES * sizeof(Vertex);
+    m_vertices = new Vertex[CIRCLE_TOTAL_VERTICES];
+    m_agentsPositions = new vec4[app->m_agents.size()];
+    m_agentsColors = new vec4[app->m_agents.size()];
+    m_agentsTrails = new Vertex[app->m_agents.size() * TRAIL_SIZE];
+    
+    m_directionLinesSize = 2 * sizeof(Vertex);
+    
+    vec4 red(1,0,0,1);
+    vec4 blue(0,0,1,1);
+    
+    mFloat incrementColor = 1.0/(app->m_agents.size());
+    
+    for (size_t i = 0 ; i < app->m_agents.size(); i++)
+    {
+        mFloat v = i * incrementColor;
+        
+        m_agentsColors[i] = v * red + (1.0 - v) * blue;
+    }
+    
+    for (size_t agentIndex = 0; agentIndex < app->m_agents.size(); agentIndex++)
+    {
+        Agent* agent = app->m_agents[agentIndex];
+        
+        Vertex vertex;
+        
+        vertex.position = vec4(agent->getPosition(),1.0);
+        vertex.color = m_agentsColors[agentIndex];
+        
+        for (size_t trailIndex = 0; trailIndex < TRAIL_SIZE; trailIndex++)
+            m_agentsTrails[agentIndex * TRAIL_SIZE + trailIndex] = vertex;
+    }
+    
+    createCircle();
+    
+    glEnable(GL_TEXTURE_2D);
+    glGenTextures(1, &m_texture);
+    glBindTexture(GL_TEXTURE_2D, m_texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F_ARB, 256, 48, 0, GL_RGBA, GL_FLOAT, NULL);
+    
+    string path = "../SVModel/";
+    
+    program[TRAIL_PROGRAM] = Utils::InitShader((path + "shaders/trail_vshader.vsh").c_str(),(path + "shaders/simple_fshader.fsh").c_str());
+    program[VISION_PROGRAM] = Utils::InitShader((path + "shaders/texture_visualization_vshader.vsh").c_str(), (path + "shaders/texture_visualization_fshader.fsh").c_str());
+    program[SIM_PROGRAM] = Utils::InitShader((path + "shaders/simulation_vshader.vsh").c_str(),(path + "shaders/simple_fshader.fsh").c_str());
+    
+    // Create a vertex array object
+#ifdef __APPLE__
+    glGenVertexArraysAPPLE( 1, &m_vao[SIM_PROGRAM] );
+    glBindVertexArrayAPPLE( m_vao[SIM_PROGRAM] );
+#else
+    glGenVertexArrays( 1, &m_vao[SIM_PROGRAM] );
+    glBindVertexArray( m_vao[SIM_PROGRAM] );
+#endif
+    
+    // Create and initialize a buffer object
+    glGenBuffers(1, &m_buffer[SIM_PROGRAM]);
+    glBindBuffer( GL_ARRAY_BUFFER, m_buffer[SIM_PROGRAM] );
+    glBufferData( GL_ARRAY_BUFFER, m_verticesSize + m_directionLinesSize, NULL, GL_STATIC_DRAW );
+    glBufferSubData(GL_ARRAY_BUFFER, 0, m_verticesSize, m_vertices);
+    glBufferSubData(GL_ARRAY_BUFFER, m_verticesSize, m_directionLinesSize, m_directionLines);
+    
+    glUseProgram( program[SIM_PROGRAM] );
+    
+    // Initialize the vertex position attribute from the vertex shader
+    GLuint position_loc = glGetAttribLocation( program[SIM_PROGRAM], "vPosition" );
+    
+    glEnableVertexAttribArray( position_loc );
+    glVertexAttribPointer( position_loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), M_OFFSET(Vertex, position));
+    
+    m_matrix_loc[SIM_PROGRAM] = glGetUniformLocation(program[SIM_PROGRAM], "model_view");
+    m_projection_loc[SIM_PROGRAM] = glGetUniformLocation(program[SIM_PROGRAM], "projection");
+    
+    m_agentsDataLocation = glGetUniformLocation(program[SIM_PROGRAM], "agentsData");
+    m_agentsColorLocation = glGetUniformLocation(program[SIM_PROGRAM], "agentsColor");
+    
+    //---------------
+
+#ifdef __APPLE__
+    glGenVertexArraysAPPLE(1, &m_vao[VISION_PROGRAM]);
+    glBindVertexArrayAPPLE(m_vao[VISION_PROGRAM]);
+#else
+    glGenVertexArrays(1, &m_vao[VISION_PROGRAM]);
+    glBindVertexArray(m_vao[VISION_PROGRAM]);
+#endif
+    
+    glGenBuffers(1, &m_buffer[VISION_PROGRAM]);
+    glBindBuffer( GL_ARRAY_BUFFER, m_buffer[VISION_PROGRAM]);
+    glBufferData( GL_ARRAY_BUFFER, sizeof(renderedQuad) + sizeof(renderedQuadColor) + sizeof(textcoord), NULL, GL_STATIC_DRAW);
+    
+    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(renderedQuad), renderedQuad);
+    glBufferSubData(GL_ARRAY_BUFFER, sizeof(renderedQuad), sizeof(renderedQuadColor), renderedQuadColor);
+    glBufferSubData(GL_ARRAY_BUFFER, sizeof(renderedQuad) + sizeof(renderedQuadColor), sizeof(textcoord), textcoord);
+    
+    glUniform4fv( m_agentsColorLocation, (int) app->m_agents.size(), glm::value_ptr(m_agentsColors[0]) );
+    
+    glUseProgram(program[VISION_PROGRAM]);
+    
+    GLuint loc = glGetAttribLocation(program[VISION_PROGRAM], "vPosition");
+    glEnableVertexAttribArray(loc);
+    glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
+    
+    loc = glGetAttribLocation(program[VISION_PROGRAM], "vColor");
+    glEnableVertexAttribArray(loc);
+    glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(sizeof(renderedQuad)));
+    
+    loc = glGetAttribLocation(program[VISION_PROGRAM], "textcoord");
+    glEnableVertexAttribArray(loc);
+    glVertexAttribPointer(loc, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(sizeof(renderedQuad)+sizeof(renderedQuadColor)));
+    
+    m_matrix_loc[VISION_PROGRAM] = glGetUniformLocation(program[VISION_PROGRAM], "model_view");
+    m_projection_loc[VISION_PROGRAM] = glGetUniformLocation(program[VISION_PROGRAM], "projection");
+    GLuint renderedTexture = glGetUniformLocation(program[VISION_PROGRAM], "renderedTexture");
+    glUniform1i(renderedTexture, 0);
+    
+    //--------------
+
+#ifdef __APPLE__    
+    glGenVertexArraysAPPLE(1, &m_vao[TRAIL_PROGRAM]);
+    glBindVertexArrayAPPLE(m_vao[TRAIL_PROGRAM]);
+#else
+    glGenVertexArrays(1, &m_vao[TRAIL_PROGRAM]);
+    glBindVertexArray(m_vao[TRAIL_PROGRAM]);
+#endif
+    
+    glGenBuffers(1, &m_buffer[TRAIL_PROGRAM]);
+    glBindBuffer( GL_ARRAY_BUFFER, m_buffer[TRAIL_PROGRAM]);
+    glBufferData( GL_ARRAY_BUFFER, sizeof(Vertex) * app->m_agents.size() * TRAIL_SIZE, m_agentsTrails, GL_STATIC_DRAW);
+    
+    glUseProgram(program[TRAIL_PROGRAM]);
+    
+    loc = glGetAttribLocation(program[TRAIL_PROGRAM], "vPosition");
+    glEnableVertexAttribArray(loc);
+    glVertexAttribPointer( loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), M_OFFSET(Vertex, position));
+    
+    loc = glGetAttribLocation(program[TRAIL_PROGRAM], "vColor");
+    glEnableVertexAttribArray(loc);
+    glVertexAttribPointer(loc, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), M_OFFSET(Vertex, color));
+    
+    m_matrix_loc[TRAIL_PROGRAM] = glGetUniformLocation(program[TRAIL_PROGRAM], "model_view");
+    m_projection_loc[TRAIL_PROGRAM] = glGetUniformLocation(program[TRAIL_PROGRAM], "projection");
+    
+    //---------------
+    
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+    
+    glClearColor( 1.0, 1.0, 1.0, 1.0 ); // white background*/
+}
+
+void display()
+{
+	tic();
+	app->doSimulatorStep();
+	toc();
+    
+    for (size_t agentIndex = 0; agentIndex < app->m_agents.size(); agentIndex++)
+    {
+        Agent *agent = app->m_agents[agentIndex];
+        
+        vec3 agentPosition    = agent->getPosition();
+        vec3 agentOrientation = agent->getOrientation();
+        m_agentsPositions[agentIndex] = vec4(agentPosition.x,
+                                             agentPosition.z,
+                                             agentOrientation.x,
+                                             agentOrientation.z);
+    }
+
+#ifdef __APPLE__
+    glBindVertexArrayAPPLE(m_vao[SIM_PROGRAM]);
+#else
+    glBindVertexArray(m_vao[SIM_PROGRAM]);
+#endif
+    
+    glUseProgram(program[SIM_PROGRAM]);
+    
+    glUniform4fv( m_agentsDataLocation, (int) app->m_agents.size(), glm::value_ptr(m_agentsPositions[0]) );
+    
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glViewport(0, 0, SCREEN_WIDTH, SCREEN_LENGTH);
+    
+    glClearColor( 1.0, 1.0, 1.0, 1.0 );
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    glm::mat4x4 model_view = glm::lookAt(vec3(0,5.0,0), vec3(0,0,0), vec3(0,0,-1));
+    
+    mFloat distance = 20.0f;
+    mFloat distancex = distance * (float)SCREEN_WIDTH/(float)SCREEN_LENGTH;
+    glm::mat4x4 projection =  glm::ortho(-distancex, distancex, -distance, distance, -distance, distance);
+    
+    glUniformMatrix4fv(m_matrix_loc[SIM_PROGRAM], 1, GL_FALSE, glm::value_ptr(model_view));
+    glUniformMatrix4fv(m_projection_loc[SIM_PROGRAM], 1, GL_FALSE, glm::value_ptr(projection));
+    
+    glDrawArraysInstancedARB(GL_TRIANGLES, 0, CIRCLE_TOTAL_VERTICES, (GLsizei) app->m_agents.size());
+    glDrawArraysInstancedARB(GL_LINES, CIRCLE_TOTAL_VERTICES, 2, (GLsizei) app->m_agents.size());
+    
+    //-------------- TRAILS ------------------
+    
+    if (renderTrails)
+    {
+        // Update trails. This is not optimized at all.
+        for (size_t agentIndex = 0; agentIndex < app->m_agents.size(); agentIndex++)
+        {
+            Agent *agent = app->m_agents[agentIndex];
+            
+            vec3 agentPosition    = agent->getPosition();
+            
+            size_t trailIndexInitial = agentIndex*TRAIL_SIZE;
+            size_t trailIndexFinal = (agentIndex+1)*TRAIL_SIZE;
+            
+            for (size_t j = trailIndexFinal-1; j > trailIndexInitial; j--)
+                m_agentsTrails[j] = m_agentsTrails[j-1];
+            
+            Vertex vertex;
+            vertex.position = vec4(agentPosition,1.0);
+            vertex.color = m_agentsColors[agentIndex];
+            
+            m_agentsTrails[trailIndexInitial] = vertex;
+        }
+#ifdef __APPLE__
+        glBindVertexArrayAPPLE(m_vao[TRAIL_PROGRAM]);
+#else
+        glBindVertexArray(m_vao[TRAIL_PROGRAM]);
+#endif
+        glUseProgram(program[TRAIL_PROGRAM]);
+        
+        glUniformMatrix4fv(m_matrix_loc[TRAIL_PROGRAM], 1, GL_FALSE, glm::value_ptr(model_view));
+        glUniformMatrix4fv(m_projection_loc[TRAIL_PROGRAM], 1, GL_FALSE, glm::value_ptr(projection));
+        
+        glBindBuffer( GL_ARRAY_BUFFER, m_buffer[TRAIL_PROGRAM]);
+        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(Vertex) * app->m_agents.size() * TRAIL_SIZE, m_agentsTrails);
+        
+        for(size_t i=0; i<app->m_agents.size(); i++)
+            glDrawArrays(GL_LINE_STRIP,(GLint) i * TRAIL_SIZE, TRAIL_SIZE);
+        
+    }
+    
+    //-------------- VISION VISUALIZATION ------------------
+    
+    if (renderVision)
+    {
+        // change for any agent index to render its vision.
+        size_t agentIndex = 0;
+        app->m_crowdModel->renderVisionForVisualization(agentIndex);
+        
+#ifdef __APPLE__
+        glBindVertexArrayAPPLE(m_vao[VISION_PROGRAM]);
+#else
+        glBindVertexArray(m_vao[VISION_PROGRAM]);
+#endif
+        glUseProgram(program[VISION_PROGRAM]);
+        
+        glViewport(0, 0, 512, 96);
+        
+        model_view = glm::lookAt(vec3(0,0,2), vec3(0,0,0), vec3(0,1,0));
+        projection = glm::ortho(-1.0, 1.0, -1.0, 1.0, -1.0, 10.0);
+        
+        glUniformMatrix4fv(m_matrix_loc[VISION_PROGRAM], 1, GL_FALSE, glm::value_ptr(model_view));
+        glUniformMatrix4fv(m_projection_loc[VISION_PROGRAM], 1, GL_FALSE, glm::value_ptr(projection));
+        
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+    }
+    
+    glutSwapBuffers();
+    
+    // Delay between frames
+    //usleep(6000);
+}
+
+void keyboard( unsigned char key, int x, int y )
+{
+    if(key=='q'||key=='Q') exit(0);
+}
+
+void mouse( int button, int state, int x, int y)
+{
+}
+
+void redisplay()
+{
+    glutPostRedisplay();
+}
+
+int main( int argc, char **argv )
+{
+    glutInit( &argc, argv );
+    glutInitDisplayMode( GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE );
+    glutInitWindowSize( SCREEN_WIDTH, SCREEN_LENGTH );
+    glutCreateWindow( "Synthetic Vision Model" );
+    glewInit();
+    
+    init();
+    
+    glutDisplayFunc( display );
+    glutKeyboardFunc( keyboard );
+    glutMouseFunc(mouse);
+    glutIdleFunc(redisplay);
+    
+    glutMainLoop();
+    return 0;
+}
+

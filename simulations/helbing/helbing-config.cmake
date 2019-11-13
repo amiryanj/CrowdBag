@@ -1,0 +1,6 @@
+include(${CMAKE_CURRENT_LIST_DIR}/helbing-targets.cmake)
+get_filename_component(HELBING_INCLUDE_DIR1 "${CMAKE_CURRENT_LIST_DIR}/../../include/" ABSOLUTE)
+get_filename_component(HELBING_INCLUDE_DIR2 "${CMAKE_CURRENT_LIST_DIR}/../../include/helbing/" ABSOLUTE)
+set(HELBING_INCLUDE_DIRS ${HELBING_INCLUDE_DIR1} ${HELBING_INCLUDE_DIR2})
+include_directories(${HELBING_INCLUDE_DIRS})
+set(HELBING_LIBRARIES helbing)

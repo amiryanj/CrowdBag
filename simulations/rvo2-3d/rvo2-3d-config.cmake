@@ -1,0 +1,6 @@
+include(${CMAKE_CURRENT_LIST_DIR}/rvo2-3d-targets.cmake)
+get_filename_component(RVO2-3D_INCLUDE_DIR1 "${CMAKE_CURRENT_LIST_DIR}/../../include/" ABSOLUTE)
+get_filename_component(RVO2-3D_INCLUDE_DIR2 "${CMAKE_CURRENT_LIST_DIR}/../../include/rvo2-3d/" ABSOLUTE)
+set(RVO2-3D_INCLUDE_DIRS ${RVO2-3D_INCLUDE_DIR1} ${RVO2-3D_INCLUDE_DIR2})
+include_directories(${RVO2-3D_INCLUDE_DIRS})
+set(RVO2-3D_LIBRARIES rvo2-3d)
