@@ -1,18 +1,18 @@
 cmake_minimum_required(VERSION 3.5)
-project (crowd_sim)
+project (crowd_bag)
 set (CMAKE_CXX_STANDARD 11)
-set (PYTHON3 FALSE CACHE BOOL "Set when using python 3")
-
+set (PYTHON3 FALSE CACHE BOOL "Using python3 instead of python2")
+set (WITH_ROS FALSE CACHE BOOL "a ROS interface")
 if (UNIX AND NOT APPLE)
-    message("Here:  ${PYTHON_VERSION_SUFFIX}")
+    message("Python Version Suffix:  ${PYTHON_VERSION_SUFFIX}")
     # if (PYTHON_VERSION_MAJOR EQUAL 3)
     if (PYTHON3)
-        message("== Compile with Python 3 ==")
+        message("===== Compile with Python 3 =====")
         FIND_PACKAGE(Boost COMPONENTS python-py35)
         FIND_PACKAGE(PythonInterp 3)
         FIND_PACKAGE(PythonLibs 3 REQUIRED)
     else()
-        message("== Compile with Python 2 ==")
+        message("===== Compile with Python 2 =====")
         FIND_PACKAGE(Boost COMPONENTS python)
         FIND_PACKAGE(PythonInterp)
         FIND_PACKAGE(PythonLibs REQUIRED)
@@ -37,13 +37,9 @@ file(	GLOB
 #        models/src/pedestrianVision.cpp
         models/src/Sampler.cpp
         models/src/SimulationBoids.cpp
-#        models/src/SimulationBoids3D.cpp
-#        models/src/SimulationRandomBoids3D.cpp
         models/src/SimulationHelbing.cpp
-#        models/src/SimulationHelbing3D.cpp
         models/src/SimulationPowerLaw.cpp
         models/src/SimulationRVO2.cpp
-#        models/src/SimulationRVO23D.cpp
 #        models/src/SimulationTModel.cpp
 #        models/src/SimulationUber.cpp
 #        models/src/SimulationWarp.cpp
@@ -67,11 +63,16 @@ file(	GLOB
         ./craal-core/src/Simulation3D.cpp
 )
 
+file (  GLOB
+        THIRD_PARTY_SOURCES
+        ./third-party/tinyxml2.cpp
+)
+
 add_subdirectory(simulations/powerlaw)
 add_subdirectory(simulations/helbing)
 add_subdirectory(simulations/rvo2)
 
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_LIST_DIR} ./craal-core/include ./models/include)
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_LIST_DIR} ./craal-core/include ./models/include ./third-party)
 INCLUDE_DIRECTORIES(./simulations/helbing/include
                     ./simulations/rvo2/include
                     ./simulations/powerlaw/include)
@@ -79,17 +80,40 @@ INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
 
 LINK_LIBRARIES(${Boost_LIBRARIES} ${PYTHON_LIBRARIES}) # Deprecated but so convenient!
 
-PYTHON_ADD_MODULE(crowdsim crowd_sim.cpp
+PYTHON_ADD_MODULE(crowdbag crowdbag_py.cpp crowdbag.hpp
     ${CORE_SOURCES} ${MODELS_SOURCES}
     )
-target_link_libraries(crowdsim
-        helbing rvo2 powerlaw)
+target_link_libraries(crowdbag helbing rvo2 powerlaw)
 
-#add_executable(test1 main.cpp crowd_sim.cpp ${CORE_SOURCES} ${MODELS_SOURCES})
-#target_link_libraries(test1
-#        ${CMAKE_CURRENT_BINARY_DIR}/simulations/helbing/libhelbing.so
-#        ${CMAKE_CURRENT_BINARY_DIR}/simulations/rvo2/librvo2.so
-#        ${CMAKE_CURRENT_BINARY_DIR}/simulations/powerlaw/libpowerlaw.so )
+add_executable(testcpp test.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES})
+target_link_libraries(testcpp helbing rvo2 powerlaw)
+
+#if (WITH_ROS) # when user wants to install ros
+    ## Find catkin and any catkin packages
+    message("===== Compile with ROS =====")
+#    find_package(catkin REQUIRED )
+    find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs genmsg)
+
+    include_directories(${catkin_INCLUDE_DIRS})
+    link_directories(${catkin_LIBRARY_DIRS})
+
+    ## Declare ROS messages and services
+#    add_service_files(DIRECTORY srv FILES AddTwoInts.srv)
+#    add_message_files(DIRECTORY msg FILES Num.msg)
+
+    ## Generate added messages and services
+#    generate_messages(DEPENDENCIES std_msgs)
+
+    ## Declare a catkin package
+#    catkin_package(CATKIN_DEPENDS message_runtime std_msgs)
+
+    add_executable(crowdbag_node crowdbag_node.cpp
+        crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES} ${THIRD_PARTY_SOURCES}
+        )
+    target_link_libraries(crowdbag_node
+        ${catkin_LIBRARIES} helbing rvo2 powerlaw)
+    #add_dependencies()
+#endif()
 
 FILE(COPY test.py DESTINATION .)
 #ADD_TEST(NAME 02-ExposingClasses COMMAND ${PYTHON_EXECUTABLE} classes.py)
