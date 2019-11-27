@@ -88,7 +88,7 @@ target_link_libraries(crowdbag helbing rvo2 powerlaw)
 add_executable(testcpp test.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES})
 target_link_libraries(testcpp helbing rvo2 powerlaw)
 
-#if (WITH_ROS) # when user wants to install ros
+if (WITH_ROS) # when user wants to install ros
     ## Find catkin and any catkin packages
     message("===== Compile with ROS =====")
 #    find_package(catkin REQUIRED )
@@ -113,7 +113,7 @@ target_link_libraries(testcpp helbing rvo2 powerlaw)
     target_link_libraries(crowdbag_node
         ${catkin_LIBRARIES} helbing rvo2 powerlaw)
     #add_dependencies()
-#endif()
+endif()
 
 FILE(COPY test.py DESTINATION .)
 #ADD_TEST(NAME 02-ExposingClasses COMMAND ${PYTHON_EXECUTABLE} classes.py)

@@ -18,6 +18,7 @@ struct Line {
 
 void loadXML(const char *filename, CrowdSim& sim)
 {
+    cout << "1" << endl;
     int n_peds = 0;
 
     std::vector<Line> obstacles;
@@ -80,7 +81,7 @@ void loadXML(const char *filename, CrowdSim& sim)
         std::cerr << "exception: " << e.what() << std::endl;
         return;
     }
-
+    cout << "2" << endl;
     sim.init(n_peds);
     for (int i =0; i<n_peds; i++) {
         sim.setPosition(i, positions[i].x, positions[i].y);
@@ -90,16 +91,18 @@ void loadXML(const char *filename, CrowdSim& sim)
         sim.setAgentTimeHorizon(i, params_time_horizon[i]);
         sim.setAgentNeighborDist(i, params_neighbor_dist[i]);
     }
+    cout << "3" << endl;
 }
 
 class Listener {
     CrowdSim* sim;
     ros::NodeHandle* node;
-    ros::Publisher * pub;
+    ros::Publisher pub;
 public:
     Listener(ros::NodeHandle* node_, CrowdSim* sim_) : node(node_), sim(sim_) {
-        *pub = node->advertise<std_msgs::String>("crowd" //
-                                                     , 100 /* queue capacity */ );
+        pub = (node->advertise<std_msgs::String>("crowd" // topic
+                                                     , 100 /* queue capacity */ ));
+        cout << "4" << endl;
     }
     void clock_callback(const rosgraph_msgs::Clock& msg)
     {
