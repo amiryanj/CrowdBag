@@ -2,7 +2,7 @@ import crowdsim
 
 sim = crowdsim.CrowdSim("helbing")
 N = 10
-sim.initSimulation(N)
+sim.init(N)
 sim.setTime(0)
 
 for i in range(N):
@@ -17,5 +17,5 @@ for k in range(100):
       px_i = sim.getCenterxNext(i)
       py_i = sim.getCenteryNext(i)
       vx_i = sim.getCenterVelocityxNext(i)
-      vx_i = sim.getCenterVelocityxNext(i)
+      vy_i = sim.getCenterVelocityyNext(i)
       print(t, px_i, py_i)

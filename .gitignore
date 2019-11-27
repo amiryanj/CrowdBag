@@ -1,4 +1,5 @@
 /build
+/buildqt
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
