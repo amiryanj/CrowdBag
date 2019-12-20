@@ -34,33 +34,27 @@ endif()
 
 file(	GLOB
         MODELS_SOURCES
-#        models/src/pedestrianVision.cpp
         models/src/Sampler.cpp
         models/src/SimulationBoids.cpp
         models/src/SimulationHelbing.cpp
         models/src/SimulationPowerLaw.cpp
         models/src/SimulationRVO2.cpp
 #        models/src/SimulationTModel.cpp
-#        models/src/SimulationUber.cpp
-#        models/src/SimulationWarp.cpp
 )
 
 file(	GLOB
         CORE_SOURCES
-        ./craal-core/src/Calibration.cpp
-        ./craal-core/src/Configurable.cpp
-        ./craal-core/src/ConfigurationParser.cpp
-        ./craal-core/src/Dummy.cpp
-        ./craal-core/src/Experiment.cpp
-        ./craal-core/src/Experiment3D.cpp
-        ./craal-core/src/Metric.cpp
-        ./craal-core/src/PDF.cpp
-        ./craal-core/src/Pedestrian.cpp
-        ./craal-core/src/Record.cpp
-        ./craal-core/src/Record3D.cpp
-        ./craal-core/src/ResourceLister.cpp
         ./craal-core/src/Simulation.cpp
-        ./craal-core/src/Simulation3D.cpp
+        ./craal-core/src/Configurable.cpp
+        ./craal-core/src/PDF.cpp
+#        ./craal-core/src/ResourceLister.cpp
+#        ./craal-core/src/Calibration.cpp
+#        ./craal-core/src/ConfigurationParser.cpp
+#        ./craal-core/src/Pedestrian.cpp
+#        ./craal-core/src/Dummy.cpp
+#        ./craal-core/src/Experiment.cpp
+#        ./craal-core/src/Metric.cpp
+#        ./craal-core/src/Record.cpp
 )
 
 file (  GLOB
