@@ -88,6 +88,44 @@ target_link_libraries(crowdbag helbing rvo2 powerlaw)
 add_executable(testcpp test.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES})
 target_link_libraries(testcpp helbing rvo2 powerlaw)
 
+
+
+add_executable(1to1_parallel scenario_1to1_parallel.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES})
+target_link_libraries(1to1_parallel helbing rvo2 powerlaw)
+
+add_executable(1to1_crossing scenario_1to1_crossing.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES})
+target_link_libraries(1to1_crossing helbing rvo2 powerlaw)
+
+add_executable(1to1_45crossing scenario_1to1_45crossing.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES})
+target_link_libraries(1to1_45crossing helbing rvo2 powerlaw)
+
+
+
+add_executable(1to10_parallel scenario_1to10_parallel.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES}  ${THIRD_PARTY_SOURCES})
+target_link_libraries(1to10_parallel helbing rvo2 powerlaw)
+
+add_executable(1to10_crossing scenario_1to10_crossing.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES} ${THIRD_PARTY_SOURCES} )
+target_link_libraries(1to10_crossing helbing rvo2 powerlaw)
+
+add_executable(1to10_45crossing scenario_1to10_45crossing.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES} ${THIRD_PARTY_SOURCES} )
+target_link_libraries(1to10_45crossing helbing rvo2 powerlaw)
+
+
+
+add_executable(circle5 scenario_circle5.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES})
+target_link_libraries(circle5 helbing rvo2 powerlaw)
+
+add_executable(circle10 scenario_circle10.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES})
+target_link_libraries(circle10 helbing rvo2 powerlaw)
+
+add_executable(circle15 scenario_circle15.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES})
+target_link_libraries(circle15 helbing rvo2 powerlaw)
+
+
+add_executable(oneway scenario_oneway.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES} ${THIRD_PARTY_SOURCES} )
+target_link_libraries(oneway helbing rvo2 powerlaw)
+
+
 if (WITH_ROS) # when user wants to install ros
     ## Find catkin and any catkin packages
     message("===== Compile with ROS =====")

@@ -1,0 +1,1220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Trial xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <scene meshName="Open">
+    <Position x="0" y="0" z="0" />
+    <Rotation x="0" y="0" z="0" />
+    <recordingFile>Output_{USER}_{ITT}.csv</recordingFile>
+    <endingConditions />
+  </scene>
+  <player>
+    <TrialRegularPlayer mesh="Player" radius="0.33">
+      <Position x="43.7" y="-0.3" z="0.2" />
+      <Rotation x="0" y="0" z="0" />
+      <controlLaw>
+        <LawControllerSpeedAngle speedCurrent="0" speedDefault="0" speedVariation="1.33" angularSpeed="30" accelerationMax="0.8" timeBeforeControl="0" />
+      </controlLaw>
+    </TrialRegularPlayer>
+  </player>
+  <agents>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="4" animationOffset="0.9442104" heightOffset="-0.017021101">
+        <Position x="-4.68458" y="0.00324556231" z="0" />
+        <Rotation x="0" y="0" z="247.145538" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.3996259" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.7812538" y="-0.08095527" z="0.1" />
+              <Waypoint x="-50.3611755" y="9.095152" z="0.1" />
+              <Waypoint x="-60.59007" y="9.612538" z="0.1" />
+              <Waypoint x="-60.1152954" y="19.1939068" z="0.1" />
+              <Waypoint x="-50.0044136" y="20.2920933" z="0.1" />
+              <Waypoint x="-69.96962" y="20.3599682" z="0.1" />
+              <Waypoint x="-79.96965" y="9.845643" z="0.1" />
+              <Waypoint x="-89.52344" y="18.8329773" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="8" animationOffset="0.3168512" heightOffset="-0.048494067">
+        <Position x="-0.527430654" y="-0.432943881" z="0" />
+        <Rotation x="0" y="0" z="234.985138" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.4937768" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.02249" y="-1.45937681" z="0.1" />
+              <Waypoint x="-49.54593" y="9.965215" z="0.1" />
+              <Waypoint x="-60.0554848" y="9.441412" z="0.1" />
+              <Waypoint x="-60.1151848" y="19.20724" z="0.1" />
+              <Waypoint x="-50.21402" y="19.35053" z="0.1" />
+              <Waypoint x="-69.98177" y="18.7836838" z="0.1" />
+              <Waypoint x="-79.3756561" y="9.475941" z="0.1" />
+              <Waypoint x="-90.70703" y="20.0775814" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="2" animationOffset="0.5826022" heightOffset="0.017494129">
+        <Position x="-2.78373623" y="1.0575676" z="0" />
+        <Rotation x="0" y="0" z="337.000031" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.26015472" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.6939926" y="0.2766085" z="0.1" />
+              <Waypoint x="-49.5261269" y="8.92149448" z="0.1" />
+              <Waypoint x="-60.39144" y="9.033244" z="0.1" />
+              <Waypoint x="-59.30553" y="19.2652626" z="0.1" />
+              <Waypoint x="-49.1530571" y="19.4073181" z="0.1" />
+              <Waypoint x="-69.23508" y="19.7549477" z="0.1" />
+              <Waypoint x="-80.01443" y="9.368616" z="0.1" />
+              <Waypoint x="-89.11355" y="20.5458679" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="2" animationOffset="0.538820446" heightOffset="0.01779643">
+        <Position x="-2.0093174" y="-0.7241304" z="0" />
+        <Rotation x="0" y="0" z="180.0543" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.52239585" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.69381" y="-0.6490282" z="0.1" />
+              <Waypoint x="-50.4149246" y="9.674976" z="0.1" />
+              <Waypoint x="-59.7244377" y="9.961841" z="0.1" />
+              <Waypoint x="-60.84763" y="19.4132786" z="0.1" />
+              <Waypoint x="-50.96318" y="19.5712185" z="0.1" />
+              <Waypoint x="-70.6749" y="18.6084442" z="0.1" />
+              <Waypoint x="-79.73726" y="9.066876" z="0.1" />
+              <Waypoint x="-90.09185" y="18.953064" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="4" animationOffset="0.07278907" heightOffset="-0.009227581">
+        <Position x="-2.035341" y="1.38207841" z="0" />
+        <Rotation x="0" y="0" z="287.482666" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.3115052" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.0901642" y="-0.240339115" z="0.1" />
+              <Waypoint x="-49.9729729" y="9.205071" z="0.1" />
+              <Waypoint x="-59.860836" y="8.613521" z="0.1" />
+              <Waypoint x="-59.5012856" y="20.0310917" z="0.1" />
+              <Waypoint x="-50.2205734" y="20.1727486" z="0.1" />
+              <Waypoint x="-70.5411758" y="20.4580727" z="0.1" />
+              <Waypoint x="-80.5842743" y="10.5986242" z="0.1" />
+              <Waypoint x="-89.36605" y="20.0994949" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="7" animationOffset="0.0451191664" heightOffset="-0.0260647275">
+        <Position x="1.9185102" y="0.877190351" z="0" />
+        <Rotation x="0" y="0" z="165.807312" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.20516813" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.3925743" y="-0.5462109" z="0.1" />
+              <Waypoint x="-49.9921951" y="8.719701" z="0.1" />
+              <Waypoint x="-60.72838" y="9.487653" z="0.1" />
+              <Waypoint x="-59.1060638" y="19.8188419" z="0.1" />
+              <Waypoint x="-49.705246" y="18.59547" z="0.1" />
+              <Waypoint x="-69.59328" y="20.2337513" z="0.1" />
+              <Waypoint x="-80.18628" y="9.128797" z="0.1" />
+              <Waypoint x="-90.42009" y="19.5317459" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="2" animationOffset="0.554703057" heightOffset="-0.0350509621">
+        <Position x="3.20980978" y="-0.7421815" z="0" />
+        <Rotation x="0" y="0" z="225.877869" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.46231174" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.4157333" y="0.443315059" z="0.1" />
+              <Waypoint x="-49.5093651" y="10.3248224" z="0.1" />
+              <Waypoint x="-60.8916779" y="10.160367" z="0.1" />
+              <Waypoint x="-60.2740364" y="20.0154839" z="0.1" />
+              <Waypoint x="-49.78262" y="20.07171" z="0.1" />
+              <Waypoint x="-69.0974655" y="19.3713989" z="0.1" />
+              <Waypoint x="-79.5409851" y="9.610334" z="0.1" />
+              <Waypoint x="-90.98494" y="19.1023064" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="3" animationOffset="0.104040861" heightOffset="-0.001986377">
+        <Position x="0.48584348" y="0.371731639" z="0" />
+        <Rotation x="0" y="0" z="251.188019" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.48056543" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.1947365" y="-0.6485077" z="0.1" />
+              <Waypoint x="-50.3043823" y="9.789486" z="0.1" />
+              <Waypoint x="-60.394352" y="9.476504" z="0.1" />
+              <Waypoint x="-60.2118835" y="18.7244759" z="0.1" />
+              <Waypoint x="-49.7642746" y="19.9241467" z="0.1" />
+              <Waypoint x="-69.4439" y="20.17345" z="0.1" />
+              <Waypoint x="-79.81281" y="10.2450075" z="0.1" />
+              <Waypoint x="-89.8922043" y="20.4372215" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="1" animationOffset="0.68994987" heightOffset="-0.0212179739">
+        <Position x="3.98051953" y="1.020168" z="0" />
+        <Rotation x="0" y="0" z="295.230835" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.516712" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.5755424" y="-0.441768974" z="0.1" />
+              <Waypoint x="-49.8335457" y="10.3191843" z="0.1" />
+              <Waypoint x="-60.8559952" y="9.606776" z="0.1" />
+              <Waypoint x="-60.2637672" y="19.7298927" z="0.1" />
+              <Waypoint x="-49.9683762" y="18.8020916" z="0.1" />
+              <Waypoint x="-71.05453" y="19.134016" z="0.1" />
+              <Waypoint x="-79.58987" y="8.783627" z="0.1" />
+              <Waypoint x="-90.0733" y="18.840229" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="2" animationOffset="0.625770569" heightOffset="-0.005589217">
+        <Position x="-1.71564329" y="0.2596751" z="0" />
+        <Rotation x="0" y="0" z="292.570862" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.16702449" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-48.9895859" y="0.147928029" z="0.1" />
+              <Waypoint x="-50.064846" y="9.995571" z="0.1" />
+              <Waypoint x="-59.74708" y="9.047412" z="0.1" />
+              <Waypoint x="-59.5395164" y="20.0845184" z="0.1" />
+              <Waypoint x="-50.72743" y="20.4441662" z="0.1" />
+              <Waypoint x="-69.44285" y="20.4641247" z="0.1" />
+              <Waypoint x="-80.7424" y="8.810029" z="0.1" />
+              <Waypoint x="-89.59849" y="19.4176483" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="8" animationOffset="0.917387843" heightOffset="0.0159874652">
+        <Position x="-0.0339476764" y="-0.472666085" z="0" />
+        <Rotation x="0" y="0" z="146.942841" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.13345945" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.7018166" y="0.0502147973" z="0.1" />
+              <Waypoint x="-50.6766" y="9.757264" z="0.1" />
+              <Waypoint x="-60.4113464" y="8.786824" z="0.1" />
+              <Waypoint x="-60.5342941" y="19.5808983" z="0.1" />
+              <Waypoint x="-50.7967644" y="19.99198" z="0.1" />
+              <Waypoint x="-69.74391" y="19.2910366" z="0.1" />
+              <Waypoint x="-80.47536" y="10.3629675" z="0.1" />
+              <Waypoint x="-89.25903" y="18.9959469" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="4" animationOffset="0.570943654" heightOffset="0.0215039477">
+        <Position x="3.876238" y="-0.618896842" z="0" />
+        <Rotation x="0" y="0" z="201.393326" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.58021283" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.0236244" y="-1.256814" z="0.1" />
+              <Waypoint x="-50.91765" y="9.71040249" z="0.1" />
+              <Waypoint x="-59.46898" y="9.185283" z="0.1" />
+              <Waypoint x="-60.1298065" y="20.0431232" z="0.1" />
+              <Waypoint x="-49.28342" y="19.5058174" z="0.1" />
+              <Waypoint x="-69.4734344" y="20.3449478" z="0.1" />
+              <Waypoint x="-80.0024948" y="9.665924" z="0.1" />
+              <Waypoint x="-89.43174" y="19.4890766" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="9" animationOffset="0.639457464" heightOffset="0.04123083">
+        <Position x="-4.02546167" y="-0.397493154" z="0" />
+        <Rotation x="0" y="0" z="97.36112" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.4530127" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-48.95015" y="-0.5394784" z="0.1" />
+              <Waypoint x="-50.2258644" y="8.661876" z="0.1" />
+              <Waypoint x="-60.1368828" y="9.26752949" z="0.1" />
+              <Waypoint x="-61.06554" y="19.9040489" z="0.1" />
+              <Waypoint x="-49.64813" y="20.04207" z="0.1" />
+              <Waypoint x="-69.44835" y="19.6268749" z="0.1" />
+              <Waypoint x="-80.6913452" y="9.771205" z="0.1" />
+              <Waypoint x="-89.38316" y="19.6974449" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="1" animationOffset="0.919024944" heightOffset="-0.0186975785">
+        <Position x="-2.99663854" y="-0.8896591" z="0" />
+        <Rotation x="0" y="0" z="130.108139" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.475648" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.96804" y="-0.164709061" z="0.1" />
+              <Waypoint x="-49.4400635" y="9.437661" z="0.1" />
+              <Waypoint x="-59.47354" y="10.0697861" z="0.1" />
+              <Waypoint x="-60.16255" y="18.78147" z="0.1" />
+              <Waypoint x="-49.9153175" y="18.6859818" z="0.1" />
+              <Waypoint x="-70.92335" y="18.8058643" z="0.1" />
+              <Waypoint x="-80.16095" y="10.355813" z="0.1" />
+              <Waypoint x="-89.4013" y="19.5427685" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="2" animationOffset="0.176617622" heightOffset="-0.0252234358">
+        <Position x="4.55115032" y="0.6508337" z="0" />
+        <Rotation x="0" y="0" z="195.023956" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.59704745" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-48.9748726" y="-1.240277" z="0.1" />
+              <Waypoint x="-49.2684822" y="9.084845" z="0.1" />
+              <Waypoint x="-60.7436028" y="9.890022" z="0.1" />
+              <Waypoint x="-59.1304321" y="20.1198616" z="0.1" />
+              <Waypoint x="-49.9061966" y="20.2097225" z="0.1" />
+              <Waypoint x="-70.36448" y="19.40298" z="0.1" />
+              <Waypoint x="-79.9853745" y="10.3700542" z="0.1" />
+              <Waypoint x="-89.52404" y="19.1633587" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="0" animationOffset="0.198141575" heightOffset="0.0339846835">
+        <Position x="3.43333077" y="0.673264444" z="0" />
+        <Rotation x="0" y="0" z="141.784332" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.17669654" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.6614456" y="0.112282068" z="0.1" />
+              <Waypoint x="-49.9656" y="9.1282" z="0.1" />
+              <Waypoint x="-60.25021" y="9.43116" z="0.1" />
+              <Waypoint x="-60.61857" y="19.3333645" z="0.1" />
+              <Waypoint x="-50.2215652" y="19.6452618" z="0.1" />
+              <Waypoint x="-69.43303" y="19.3763447" z="0.1" />
+              <Waypoint x="-79.0144958" y="10.677803" z="0.1" />
+              <Waypoint x="-90.0024" y="19.0936947" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="2" animationOffset="0.145594" heightOffset="0.0372922532">
+        <Position x="-0.196863681" y="-0.007878676" z="0" />
+        <Rotation x="0" y="0" z="318.00412" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.05183256" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.3767166" y="-1.32043815" z="0.1" />
+              <Waypoint x="-50.8531" y="9.67676" z="0.1" />
+              <Waypoint x="-60.6730423" y="10.3187637" z="0.1" />
+              <Waypoint x="-60.8598251" y="19.8603554" z="0.1" />
+              <Waypoint x="-49.58006" y="20.0738125" z="0.1" />
+              <Waypoint x="-69.8248" y="19.20811" z="0.1" />
+              <Waypoint x="-79.38338" y="10.7290621" z="0.1" />
+              <Waypoint x="-90.68262" y="19.3435783" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="4" animationOffset="0.109156013" heightOffset="0.0348495133">
+        <Position x="2.6326654" y="-0.7730444" z="0" />
+        <Rotation x="0" y="0" z="94.79813" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.3857131" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.1510544" y="3.606081E-06" z="0.1" />
+              <Waypoint x="-49.0763474" y="9.812998" z="0.1" />
+              <Waypoint x="-60.6056671" y="10.223712" z="0.1" />
+              <Waypoint x="-60.7268639" y="19.7038555" z="0.1" />
+              <Waypoint x="-50.90876" y="19.9031162" z="0.1" />
+              <Waypoint x="-69.16266" y="19.2847958" z="0.1" />
+              <Waypoint x="-79.3887939" y="10.0401459" z="0.1" />
+              <Waypoint x="-89.10762" y="20.4439983" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="4" animationOffset="0.691273451" heightOffset="-0.0341024734">
+        <Position x="4.560284" y="-0.574109" z="0" />
+        <Rotation x="0" y="0" z="276.1557" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.140635" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.76352" y="0.511169434" z="0.1" />
+              <Waypoint x="-49.34751" y="10.2413769" z="0.1" />
+              <Waypoint x="-60.2162" y="9.712424" z="0.1" />
+              <Waypoint x="-59.289135" y="20.2208176" z="0.1" />
+              <Waypoint x="-50.3987656" y="20.1658382" z="0.1" />
+              <Waypoint x="-69.42808" y="19.9038" z="0.1" />
+              <Waypoint x="-80.67067" y="9.939812" z="0.1" />
+              <Waypoint x="-90.29475" y="19.891304" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="1" animationOffset="0.06684208" heightOffset="-0.016088957">
+        <Position x="0.8605955" y="1.26730347" z="0" />
+        <Rotation x="0" y="0" z="197.486053" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.28320384" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.59985" y="-0.688599" z="0.1" />
+              <Waypoint x="-49.444355" y="8.90369" z="0.1" />
+              <Waypoint x="-59.417675" y="8.997466" z="0.1" />
+              <Waypoint x="-59.87566" y="19.6920643" z="0.1" />
+              <Waypoint x="-50.1938057" y="19.1892872" z="0.1" />
+              <Waypoint x="-70.9540253" y="19.9720039" z="0.1" />
+              <Waypoint x="-80.09734" y="9.536376" z="0.1" />
+              <Waypoint x="-89.5975342" y="19.4263744" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="0" animationOffset="0.162460446" heightOffset="-0.024717886">
+        <Position x="-0.8000388" y="0.8885715" z="0" />
+        <Rotation x="0" y="0" z="177.029587" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.43802381" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.1614647" y="-0.23448047" z="0.1" />
+              <Waypoint x="-49.51814" y="8.584792" z="0.1" />
+              <Waypoint x="-59.2470245" y="9.313003" z="0.1" />
+              <Waypoint x="-60.2527733" y="18.9906769" z="0.1" />
+              <Waypoint x="-50.02785" y="19.902586" z="0.1" />
+              <Waypoint x="-69.31609" y="18.83559" z="0.1" />
+              <Waypoint x="-79.58704" y="10.3198023" z="0.1" />
+              <Waypoint x="-89.75698" y="19.8120918" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="5" animationOffset="0.911846638" heightOffset="0.0496898927">
+        <Position x="1.49821234" y="1.41817176" z="0" />
+        <Rotation x="0" y="0" z="86.34881" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.28272641" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.44025" y="-0.0643847" z="0.1" />
+              <Waypoint x="-50.1822777" y="9.082721" z="0.1" />
+              <Waypoint x="-59.1518059" y="10.4068642" z="0.1" />
+              <Waypoint x="-59.63387" y="20.0848312" z="0.1" />
+              <Waypoint x="-49.54552" y="18.5933361" z="0.1" />
+              <Waypoint x="-69.80453" y="19.9494934" z="0.1" />
+              <Waypoint x="-80.28054" y="10.4291382" z="0.1" />
+              <Waypoint x="-89.1412" y="20.3654385" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="3" animationOffset="0.258853853" heightOffset="-0.009464152">
+        <Position x="2.46467447" y="0.28914243" z="0" />
+        <Rotation x="0" y="0" z="56.7048645" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.090492" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.1801529" y="-0.143639535" z="0.1" />
+              <Waypoint x="-50.03411" y="9.525651" z="0.1" />
+              <Waypoint x="-59.5701" y="8.889023" z="0.1" />
+              <Waypoint x="-60.1160164" y="18.6585369" z="0.1" />
+              <Waypoint x="-50.03734" y="20.1167011" z="0.1" />
+              <Waypoint x="-69.207756" y="19.8512211" z="0.1" />
+              <Waypoint x="-80.2750244" y="10.4550838" z="0.1" />
+              <Waypoint x="-90.677536" y="20.4000282" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="2" animationOffset="0.0897600651" heightOffset="-0.00758388638">
+        <Position x="2.108245" y="0.173129708" z="0" />
+        <Rotation x="0" y="0" z="356.230957" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.14420629" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.8448524" y="0.000325948" z="0.1" />
+              <Waypoint x="-49.82081" y="9.809749" z="0.1" />
+              <Waypoint x="-60.1524467" y="9.209664" z="0.1" />
+              <Waypoint x="-59.6035156" y="19.8120537" z="0.1" />
+              <Waypoint x="-50.8556366" y="20.4278011" z="0.1" />
+              <Waypoint x="-69.75685" y="19.3227825" z="0.1" />
+              <Waypoint x="-80.90398" y="9.871371" z="0.1" />
+              <Waypoint x="-89.4258041" y="20.5764465" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="8" animationOffset="0.658236742" heightOffset="-0.02717613">
+        <Position x="3.77903247" y="0.28991434" z="0" />
+        <Rotation x="0" y="0" z="304.417755" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.58754945" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-48.97987" y="-0.15486905" z="0.1" />
+              <Waypoint x="-49.1358261" y="8.759856" z="0.1" />
+              <Waypoint x="-59.0825233" y="9.383078" z="0.1" />
+              <Waypoint x="-60.6315346" y="19.73312" z="0.1" />
+              <Waypoint x="-50.593605" y="18.65762" z="0.1" />
+              <Waypoint x="-70.55588" y="20.0187225" z="0.1" />
+              <Waypoint x="-79.7437744" y="10.29227" z="0.1" />
+              <Waypoint x="-90.47483" y="19.2883873" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="6" animationOffset="0.8461062" heightOffset="-0.011382252">
+        <Position x="1.76087928" y="0.317940056" z="0" />
+        <Rotation x="0" y="0" z="203.265411" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.230906" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.2559853" y="-0.823433042" z="0.1" />
+              <Waypoint x="-49.8076172" y="10.18955" z="0.1" />
+              <Waypoint x="-59.9355927" y="8.582319" z="0.1" />
+              <Waypoint x="-61.0427742" y="19.0471287" z="0.1" />
+              <Waypoint x="-50.4131165" y="19.95834" z="0.1" />
+              <Waypoint x="-70.64994" y="18.65783" z="0.1" />
+              <Waypoint x="-79.21117" y="9.849207" z="0.1" />
+              <Waypoint x="-89.68509" y="18.9814911" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="4" animationOffset="0.3713792" heightOffset="-0.0189395584">
+        <Position x="1.28473723" y="1.10317183" z="0" />
+        <Rotation x="0" y="0" z="245.3533" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.58331919" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.7510452" y="0.26780203" z="0.1" />
+              <Waypoint x="-49.8727837" y="9.050212" z="0.1" />
+              <Waypoint x="-60.0449257" y="9.723744" z="0.1" />
+              <Waypoint x="-60.356987" y="19.21152" z="0.1" />
+              <Waypoint x="-50.25578" y="18.9810162" z="0.1" />
+              <Waypoint x="-69.94508" y="20.4458866" z="0.1" />
+              <Waypoint x="-78.97343" y="9.735447" z="0.1" />
+              <Waypoint x="-89.30064" y="18.7009869" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="3" animationOffset="0.410172284" heightOffset="0.0235606171">
+        <Position x="1.199765" y="-0.0676124841" z="0" />
+        <Rotation x="0" y="0" z="69.65564" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.16526747" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-48.980648" y="-0.7928368" z="0.1" />
+              <Waypoint x="-50.2032166" y="10.0068693" z="0.1" />
+              <Waypoint x="-59.49702" y="10.4681282" z="0.1" />
+              <Waypoint x="-60.0126762" y="19.5439377" z="0.1" />
+              <Waypoint x="-50.46756" y="20.4059582" z="0.1" />
+              <Waypoint x="-70.391655" y="19.2714672" z="0.1" />
+              <Waypoint x="-79.43279" y="10.34655" z="0.1" />
+              <Waypoint x="-90.3493652" y="19.3783817" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="1" animationOffset="0.3128571" heightOffset="0.0256772749">
+        <Position x="-1.02704823" y="-0.8252492" z="0" />
+        <Rotation x="0" y="0" z="337.211" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.24483633" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.5723724" y="-0.0152201355" z="0.1" />
+              <Waypoint x="-49.5254936" y="10.463995" z="0.1" />
+              <Waypoint x="-61.0535851" y="8.794041" z="0.1" />
+              <Waypoint x="-60.6672935" y="20.0063667" z="0.1" />
+              <Waypoint x="-50.40671" y="19.0993385" z="0.1" />
+              <Waypoint x="-69.42881" y="20.3721771" z="0.1" />
+              <Waypoint x="-80.02441" y="9.753751" z="0.1" />
+              <Waypoint x="-90.44217" y="18.65852" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="9" animationOffset="0.464137256" heightOffset="0.009252317">
+        <Position x="-0.276707977" y="0.604295254" z="0" />
+        <Rotation x="0" y="0" z="280.7865" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.01976418" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.07278" y="-1.34128165" z="0.1" />
+              <Waypoint x="-50.79743" y="8.490738" z="0.1" />
+              <Waypoint x="-60.0223541" y="8.94408" z="0.1" />
+              <Waypoint x="-60.8913422" y="19.0861931" z="0.1" />
+              <Waypoint x="-50.78147" y="19.5561581" z="0.1" />
+              <Waypoint x="-70.33274" y="19.6007462" z="0.1" />
+              <Waypoint x="-80.29103" y="10.0662642" z="0.1" />
+              <Waypoint x="-89.86792" y="20.3283" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="7" animationOffset="0.900207043" heightOffset="-0.03547703">
+        <Position x="-3.57436132" y="-0.6296782" z="0" />
+        <Rotation x="0" y="0" z="71.55503" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.38693917" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.87874" y="0.23944214" z="0.1" />
+              <Waypoint x="-50.1153641" y="9.208874" z="0.1" />
+              <Waypoint x="-59.6019058" y="10.2099628" z="0.1" />
+              <Waypoint x="-59.4893875" y="19.85351" z="0.1" />
+              <Waypoint x="-50.08431" y="19.7033348" z="0.1" />
+              <Waypoint x="-69.69267" y="20.2975044" z="0.1" />
+              <Waypoint x="-79.048" y="9.731497" z="0.1" />
+              <Waypoint x="-90.34943" y="19.6994534" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="1" animationOffset="0.9182497" heightOffset="-0.0421826355">
+        <Position x="3.43943429" y="1.082787" z="0" />
+        <Rotation x="0" y="0" z="146.522141" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.25242686" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.95909" y="0.07247046" z="0.1" />
+              <Waypoint x="-49.36348" y="9.65754" z="0.1" />
+              <Waypoint x="-60.1345634" y="9.828584" z="0.1" />
+              <Waypoint x="-60.5752563" y="20.1690979" z="0.1" />
+              <Waypoint x="-49.88997" y="18.7557316" z="0.1" />
+              <Waypoint x="-70.42093" y="19.18876" z="0.1" />
+              <Waypoint x="-80.3184357" y="9.729995" z="0.1" />
+              <Waypoint x="-90.28574" y="19.3395042" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="3" animationOffset="0.8839601" heightOffset="0.0329078771">
+        <Position x="-0.7599868" y="0.1373004" z="0" />
+        <Rotation x="0" y="0" z="358.623627" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.39250207" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.8496742" y="0.0103683472" z="0.1" />
+              <Waypoint x="-49.09872" y="10.0059128" z="0.1" />
+              <Waypoint x="-60.83367" y="10.1227446" z="0.1" />
+              <Waypoint x="-59.257515" y="20.09703" z="0.1" />
+              <Waypoint x="-49.0191345" y="20.1412277" z="0.1" />
+              <Waypoint x="-71.00352" y="18.8539352" z="0.1" />
+              <Waypoint x="-79.23405" y="9.097172" z="0.1" />
+              <Waypoint x="-89.40473" y="20.5713444" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="7" animationOffset="0.8334917" heightOffset="0.00476350263">
+        <Position x="4.56018543" y="0.05126448" z="0" />
+        <Rotation x="0" y="0" z="173.643234" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.17199171" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.92858" y="-1.04304886" z="0.1" />
+              <Waypoint x="-49.8875275" y="9.290397" z="0.1" />
+              <Waypoint x="-59.8190155" y="8.57198" z="0.1" />
+              <Waypoint x="-60.89166" y="18.9241772" z="0.1" />
+              <Waypoint x="-50.3317451" y="20.20121" z="0.1" />
+              <Waypoint x="-69.86854" y="19.0337753" z="0.1" />
+              <Waypoint x="-80.2345" y="9.917531" z="0.1" />
+              <Waypoint x="-90.3182449" y="20.3149662" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="2" animationOffset="0.4795069" heightOffset="0.0414111">
+        <Position x="0.7780131" y="-0.6546257" z="0" />
+        <Rotation x="0" y="0" z="48.3940048" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.37880123" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.050602" y="0.384907037" z="0.1" />
+              <Waypoint x="-49.21331" y="9.233854" z="0.1" />
+              <Waypoint x="-59.3776627" y="9.947068" z="0.1" />
+              <Waypoint x="-60.0211525" y="19.6972656" z="0.1" />
+              <Waypoint x="-50.0764351" y="19.0061169" z="0.1" />
+              <Waypoint x="-70.86648" y="20.14738" z="0.1" />
+              <Waypoint x="-79.7711258" y="10.3615513" z="0.1" />
+              <Waypoint x="-89.8451843" y="19.7904873" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="3" animationOffset="0.9577725" heightOffset="-0.0218177475">
+        <Position x="0.628414035" y="-1.15510917" z="0" />
+        <Rotation x="0" y="0" z="356.783356" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.25086093" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.39709" y="-0.4362758" z="0.1" />
+              <Waypoint x="-50.0871277" y="9.6501255" z="0.1" />
+              <Waypoint x="-60.211956" y="9.083522" z="0.1" />
+              <Waypoint x="-60.04328" y="18.7516155" z="0.1" />
+              <Waypoint x="-49.9735069" y="18.5843678" z="0.1" />
+              <Waypoint x="-70.37661" y="20.2874641" z="0.1" />
+              <Waypoint x="-79.3439941" y="9.513743" z="0.1" />
+              <Waypoint x="-90.0625839" y="19.3869972" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="3" animationOffset="0.17818141" heightOffset="0.0278366543">
+        <Position x="-0.377773255" y="-1.06141627" z="0" />
+        <Rotation x="0" y="0" z="276.647644" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.03441548" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.4935951" y="-1.16309547" z="0.1" />
+              <Waypoint x="-50.342205" y="9.015362" z="0.1" />
+              <Waypoint x="-59.8462257" y="9.47339249" z="0.1" />
+              <Waypoint x="-60.94731" y="19.2906265" z="0.1" />
+              <Waypoint x="-50.39262" y="18.7163" z="0.1" />
+              <Waypoint x="-69.7553" y="19.4459381" z="0.1" />
+              <Waypoint x="-80.087" y="9.356144" z="0.1" />
+              <Waypoint x="-90.9381256" y="19.9562054" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="1" animationOffset="0.6979971" heightOffset="-0.0468617566">
+        <Position x="-3.909986" y="0.7095197" z="0" />
+        <Rotation x="0" y="0" z="132.077835" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.05678964" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.6018181" y="-0.572721362" z="0.1" />
+              <Waypoint x="-50.7156" y="9.084558" z="0.1" />
+              <Waypoint x="-60.3438148" y="9.996941" z="0.1" />
+              <Waypoint x="-59.8210068" y="20.37957" z="0.1" />
+              <Waypoint x="-49.09336" y="20.4069614" z="0.1" />
+              <Waypoint x="-69.1666946" y="18.8513069" z="0.1" />
+              <Waypoint x="-80.22158" y="9.630282" z="0.1" />
+              <Waypoint x="-89.2057" y="20.1623669" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="2" animationOffset="0.7001227" heightOffset="-0.00581236556">
+        <Position x="0.4778387" y="1.18978775" z="0" />
+        <Rotation x="0" y="0" z="138.923477" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.0743494" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.6302452" y="0.293175" z="0.1" />
+              <Waypoint x="-50.33148" y="8.509478" z="0.1" />
+              <Waypoint x="-59.6987343" y="9.230436" z="0.1" />
+              <Waypoint x="-60.8555031" y="19.5441875" z="0.1" />
+              <Waypoint x="-50.09879" y="19.1053371" z="0.1" />
+              <Waypoint x="-69.5641861" y="18.7264366" z="0.1" />
+              <Waypoint x="-78.9548645" y="9.08177948" z="0.1" />
+              <Waypoint x="-89.9726257" y="18.9442787" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="3" animationOffset="0.917588" heightOffset="-0.02016619">
+        <Position x="-2.34727645" y="0.06958059" z="0" />
+        <Rotation x="0" y="0" z="132.007584" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.19748414" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.811058" y="-1.1106596" z="0.1" />
+              <Waypoint x="-50.5110245" y="9.783685" z="0.1" />
+              <Waypoint x="-59.2791367" y="9.261722" z="0.1" />
+              <Waypoint x="-59.51635" y="19.69207" z="0.1" />
+              <Waypoint x="-49.04495" y="19.1782074" z="0.1" />
+              <Waypoint x="-69.7964" y="18.6421623" z="0.1" />
+              <Waypoint x="-79.07863" y="8.798419" z="0.1" />
+              <Waypoint x="-90.43196" y="20.53161" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="8" animationOffset="0.8891871" heightOffset="0.0476614945">
+        <Position x="-2.18247914" y="-0.257757783" z="0" />
+        <Rotation x="0" y="0" z="0.317015648" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.44304323" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.91225" y="0.495289356" z="0.1" />
+              <Waypoint x="-48.9787979" y="9.45066452" z="0.1" />
+              <Waypoint x="-59.6569977" y="9.135681" z="0.1" />
+              <Waypoint x="-59.4636154" y="19.0835667" z="0.1" />
+              <Waypoint x="-50.36208" y="20.4233475" z="0.1" />
+              <Waypoint x="-70.89273" y="20.4849815" z="0.1" />
+              <Waypoint x="-79.05729" y="10.6608267" z="0.1" />
+              <Waypoint x="-90.21922" y="19.39912" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="0" animationOffset="0.526227534" heightOffset="-0.04099412">
+        <Position x="-3.24202466" y="0.431905478" z="0" />
+        <Rotation x="0" y="0" z="232.57254" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.42396355" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.8711166" y="-0.287560284" z="0.1" />
+              <Waypoint x="-49.1382561" y="9.738832" z="0.1" />
+              <Waypoint x="-60.61442" y="9.164536" z="0.1" />
+              <Waypoint x="-59.1534576" y="20.1145325" z="0.1" />
+              <Waypoint x="-50.23236" y="18.57451" z="0.1" />
+              <Waypoint x="-69.7302856" y="20.2272625" z="0.1" />
+              <Waypoint x="-80.7303" y="9.696283" z="0.1" />
+              <Waypoint x="-91.00551" y="18.8577614" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="4" animationOffset="0.7358806" heightOffset="0.0254006386">
+        <Position x="4.40096045" y="1.14940715" z="0" />
+        <Rotation x="0" y="0" z="156.3389" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.01290536" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.35555" y="-0.8759991" z="0.1" />
+              <Waypoint x="-49.5936356" y="10.4669113" z="0.1" />
+              <Waypoint x="-60.8809853" y="8.923853" z="0.1" />
+              <Waypoint x="-60.1357956" y="19.4603863" z="0.1" />
+              <Waypoint x="-49.08342" y="20.4787064" z="0.1" />
+              <Waypoint x="-70.40465" y="19.4446182" z="0.1" />
+              <Waypoint x="-79.6556854" y="9.155167" z="0.1" />
+              <Waypoint x="-89.19959" y="19.0860672" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="8" animationOffset="0.742748141" heightOffset="-0.0305570383">
+        <Position x="-2.54460645" y="-1.18584" z="0" />
+        <Rotation x="0" y="0" z="64.3662338" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.32999492" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.40572" y="0.132054836" z="0.1" />
+              <Waypoint x="-49.2780647" y="10.4825516" z="0.1" />
+              <Waypoint x="-60.5507965" y="9.809784" z="0.1" />
+              <Waypoint x="-59.1987343" y="18.584507" z="0.1" />
+              <Waypoint x="-49.12496" y="20.4159679" z="0.1" />
+              <Waypoint x="-70.50241" y="19.1202126" z="0.1" />
+              <Waypoint x="-79.2008057" y="9.37464" z="0.1" />
+              <Waypoint x="-90.00061" y="20.150013" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="6" animationOffset="0.631947041" heightOffset="0.04970712">
+        <Position x="2.61418581" y="-0.153984874" z="0" />
+        <Rotation x="0" y="0" z="249.663055" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.47605979" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.1524353" y="-1.28815627" z="0.1" />
+              <Waypoint x="-49.1989" y="8.841694" z="0.1" />
+              <Waypoint x="-60.5224152" y="8.791841" z="0.1" />
+              <Waypoint x="-60.2011452" y="20.0462742" z="0.1" />
+              <Waypoint x="-49.9938469" y="18.5458412" z="0.1" />
+              <Waypoint x="-70.4209061" y="19.0109921" z="0.1" />
+              <Waypoint x="-80.69173" y="8.902945" z="0.1" />
+              <Waypoint x="-89.73034" y="19.072134" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="4" animationOffset="0.5657148" heightOffset="-0.0233233981">
+        <Position x="1.6540395" y="-1.19753885" z="0" />
+        <Rotation x="0" y="0" z="117.080551" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.28442872" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-48.97787" y="-0.746237636" z="0.1" />
+              <Waypoint x="-49.4012337" y="8.634737" z="0.1" />
+              <Waypoint x="-59.17052" y="9.657161" z="0.1" />
+              <Waypoint x="-59.2218628" y="19.004549" z="0.1" />
+              <Waypoint x="-50.3718452" y="18.9158726" z="0.1" />
+              <Waypoint x="-69.26892" y="20.16821" z="0.1" />
+              <Waypoint x="-80.4752" y="9.312209" z="0.1" />
+              <Waypoint x="-90.7924347" y="19.6177139" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="0" animationOffset="0.048081398" heightOffset="0.04962292">
+        <Position x="-1.59180462" y="1.11435938" z="0" />
+        <Rotation x="0" y="0" z="44.94108" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.17920089" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.31826" y="-0.5449296" z="0.1" />
+              <Waypoint x="-50.7550278" y="10.3408031" z="0.1" />
+              <Waypoint x="-59.2508125" y="9.141324" z="0.1" />
+              <Waypoint x="-60.6731071" y="19.0584965" z="0.1" />
+              <Waypoint x="-49.41031" y="19.04721" z="0.1" />
+              <Waypoint x="-69.22837" y="18.8169861" z="0.1" />
+              <Waypoint x="-79.5125" y="9.55923748" z="0.1" />
+              <Waypoint x="-89.76099" y="20.5142365" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="2" animationOffset="0.2957409" heightOffset="-0.02491675">
+        <Position x="1.79480362" y="-0.713936448" z="0" />
+        <Rotation x="0" y="0" z="335.8566" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.11887" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.61831" y="-0.0509972274" z="0.1" />
+              <Waypoint x="-49.70493" y="10.4760952" z="0.1" />
+              <Waypoint x="-59.2122879" y="9.468558" z="0.1" />
+              <Waypoint x="-59.61193" y="19.09488" z="0.1" />
+              <Waypoint x="-49.670002" y="19.4092255" z="0.1" />
+              <Waypoint x="-69.24977" y="19.33534" z="0.1" />
+              <Waypoint x="-79.62863" y="8.778508" z="0.1" />
+              <Waypoint x="-89.64233" y="20.41351" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="6" animationOffset="0.169377685" heightOffset="-0.0233132876">
+        <Position x="0.389308631" y="-0.6687705" z="0" />
+        <Rotation x="0" y="0" z="342.687378" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.24510443" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.7241669" y="-1.01921034" z="0.1" />
+              <Waypoint x="-49.66735" y="9.857674" z="0.1" />
+              <Waypoint x="-59.40324" y="10.37887" z="0.1" />
+              <Waypoint x="-60.5915146" y="20.47016" z="0.1" />
+              <Waypoint x="-50.854393" y="20.1433048" z="0.1" />
+              <Waypoint x="-70.24373" y="18.9276829" z="0.1" />
+              <Waypoint x="-80.30416" y="10.5002594" z="0.1" />
+              <Waypoint x="-89.04058" y="19.2839756" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="1" animationOffset="0.21185708" heightOffset="0.0310168732">
+        <Position x="0.591292143" y="-1.51589215" z="0" />
+        <Rotation x="0" y="0" z="204.029358" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.165191" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.37116" y="-0.330525" z="0.1" />
+              <Waypoint x="-49.6467247" y="9.286186" z="0.1" />
+              <Waypoint x="-59.6330566" y="9.5248785" z="0.1" />
+              <Waypoint x="-60.40508" y="18.9601669" z="0.1" />
+              <Waypoint x="-49.835495" y="20.2741623" z="0.1" />
+              <Waypoint x="-70.26136" y="20.4999981" z="0.1" />
+              <Waypoint x="-79.03412" y="10.2231874" z="0.1" />
+              <Waypoint x="-90.60817" y="19.4387512" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="3" animationOffset="0.10114944" heightOffset="-0.000570409">
+        <Position x="-3.372277" y="-0.1744004" z="0" />
+        <Rotation x="0" y="0" z="35.8117867" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.08971989" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.55769" y="-1.15043473" z="0.1" />
+              <Waypoint x="-50.1446381" y="8.959649" z="0.1" />
+              <Waypoint x="-60.3110046" y="8.79579449" z="0.1" />
+              <Waypoint x="-60.7308769" y="20.07975" z="0.1" />
+              <Waypoint x="-49.79697" y="19.9005165" z="0.1" />
+              <Waypoint x="-70.53511" y="19.3568153" z="0.1" />
+              <Waypoint x="-79.72401" y="10.4006529" z="0.1" />
+              <Waypoint x="-90.4414139" y="18.869936" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="1" animationOffset="0.639683962" heightOffset="-0.0204627328">
+        <Position x="2.28670335" y="0.8634755" z="0" />
+        <Rotation x="0" y="0" z="288.150055" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.44013882" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-48.96454" y="-0.239086479" z="0.1" />
+              <Waypoint x="-50.9486351" y="8.540568" z="0.1" />
+              <Waypoint x="-60.162838" y="9.005669" z="0.1" />
+              <Waypoint x="-59.8782" y="19.813797" z="0.1" />
+              <Waypoint x="-49.3303947" y="20.0500259" z="0.1" />
+              <Waypoint x="-71.06023" y="19.18926" z="0.1" />
+              <Waypoint x="-80.8465042" y="10.27348" z="0.1" />
+              <Waypoint x="-90.36125" y="19.2205315" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="2" animationOffset="0.72840333" heightOffset="-0.0198320933">
+        <Position x="-3.96718931" y="-0.8549091" z="0" />
+        <Rotation x="0" y="0" z="58.2804146" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.39340293" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.377655" y="-0.9812815" z="0.1" />
+              <Waypoint x="-50.819767" y="10.3564882" z="0.1" />
+              <Waypoint x="-60.4914627" y="9.55644" z="0.1" />
+              <Waypoint x="-60.8045464" y="19.25308" z="0.1" />
+              <Waypoint x="-49.9781227" y="19.7924347" z="0.1" />
+              <Waypoint x="-69.77751" y="19.7454147" z="0.1" />
+              <Waypoint x="-79.7539444" y="10.1103592" z="0.1" />
+              <Waypoint x="-90.70396" y="20.18652" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="5" animationOffset="0.282695472" heightOffset="0.0075471215">
+        <Position x="-1.25389123" y="-0.278993368" z="0" />
+        <Rotation x="0" y="0" z="45.76947" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.3950429" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.098362" y="0.2702299" z="0.1" />
+              <Waypoint x="-50.9231033" y="8.56021" z="0.1" />
+              <Waypoint x="-59.7097626" y="9.561998" z="0.1" />
+              <Waypoint x="-60.06947" y="19.6264172" z="0.1" />
+              <Waypoint x="-49.4027252" y="18.9226227" z="0.1" />
+              <Waypoint x="-70.600296" y="20.0790443" z="0.1" />
+              <Waypoint x="-80.43282" y="9.802679" z="0.1" />
+              <Waypoint x="-89.99374" y="19.8919525" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="4" animationOffset="0.351399243" heightOffset="0.0282537211">
+        <Position x="1.9196111" y="1.27741" z="0" />
+        <Rotation x="0" y="0" z="287.553955" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.23370469" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-49.3557" y="-0.300519526" z="0.1" />
+              <Waypoint x="-49.5938072" y="9.910088" z="0.1" />
+              <Waypoint x="-60.64655" y="10.3559265" z="0.1" />
+              <Waypoint x="-59.5669861" y="20.101469" z="0.1" />
+              <Waypoint x="-50.5577965" y="19.4805222" z="0.1" />
+              <Waypoint x="-69.16787" y="20.1388474" z="0.1" />
+              <Waypoint x="-79.2586" y="9.639286" z="0.1" />
+              <Waypoint x="-90.84805" y="19.3854446" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="8" animationOffset="0.321276128" heightOffset="0.04577679">
+        <Position x="3.041345" y="1.1866647" z="0" />
+        <Rotation x="0" y="0" z="104.833664" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.133358" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.03008" y="0.370987445" z="0.1" />
+              <Waypoint x="-49.9817" y="8.606598" z="0.1" />
+              <Waypoint x="-59.76781" y="9.771561" z="0.1" />
+              <Waypoint x="-60.1513329" y="18.86696" z="0.1" />
+              <Waypoint x="-50.2952423" y="19.75273" z="0.1" />
+              <Waypoint x="-69.47128" y="20.0727367" z="0.1" />
+              <Waypoint x="-80.07374" y="10.36619" z="0.1" />
+              <Waypoint x="-90.05043" y="20.5100689" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="3" animationOffset="0.270250261" heightOffset="0.0127554536">
+        <Position x="-3.23445821" y="1.05092442" z="0" />
+        <Rotation x="0" y="0" z="313.626526" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.01983714" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.7586327" y="-0.9523355" z="0.1" />
+              <Waypoint x="-50.22449" y="10.0739241" z="0.1" />
+              <Waypoint x="-59.29407" y="8.562046" z="0.1" />
+              <Waypoint x="-60.6115646" y="20.1430874" z="0.1" />
+              <Waypoint x="-49.1643333" y="20.0464573" z="0.1" />
+              <Waypoint x="-70.09097" y="18.8412247" z="0.1" />
+              <Waypoint x="-79.68286" y="9.115163" z="0.1" />
+              <Waypoint x="-89.93784" y="18.8926754" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="5" animationOffset="0.8492342" heightOffset="0.035096515">
+        <Position x="1.60876632" y="-0.0164187811" z="0" />
+        <Rotation x="0" y="0" z="239.833939" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.14429021" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.2688026" y="0.293890268" z="0.1" />
+              <Waypoint x="-50.8917046" y="9.043006" z="0.1" />
+              <Waypoint x="-60.3693352" y="9.766423" z="0.1" />
+              <Waypoint x="-60.0853081" y="19.226263" z="0.1" />
+              <Waypoint x="-50.1863747" y="19.3619118" z="0.1" />
+              <Waypoint x="-70.25793" y="18.866024" z="0.1" />
+              <Waypoint x="-79.10687" y="9.877017" z="0.1" />
+              <Waypoint x="-90.702774" y="19.5877247" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="6" animationOffset="0.7397548" heightOffset="-0.0157845337">
+        <Position x="-3.87903547" y="1.221269" z="0" />
+        <Rotation x="0" y="0" z="168.063812" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.58345008" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.93153" y="-0.389193147" z="0.1" />
+              <Waypoint x="-50.3207436" y="8.735057" z="0.1" />
+              <Waypoint x="-59.34174" y="8.9687" z="0.1" />
+              <Waypoint x="-59.9573822" y="19.5290337" z="0.1" />
+              <Waypoint x="-50.52126" y="19.46191" z="0.1" />
+              <Waypoint x="-69.45508" y="19.52939" z="0.1" />
+              <Waypoint x="-79.31641" y="9.81327152" z="0.1" />
+              <Waypoint x="-89.84889" y="19.5745354" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+    <agent>
+      <TrialRegularAgent mesh="plasticMan" radius="0.33" visualVariation="4" animationOffset="0.3504756" heightOffset="0.0327252634">
+        <Position x="5.0240984" y="0.533992469" z="0" />
+        <Rotation x="0" y="0" z="75.4064255" />
+        <controlLaw>
+          <LawWaypoints speedCurrent="0" speedDefault="1.516882" accelerationMax="0.8" angularSpeed="36000" reachedDist="0.5" isLooping="false">
+            <Waypoints>
+              <Waypoint x="-50.40391" y="-0.203585863" z="0.1" />
+              <Waypoint x="-49.67349" y="9.450782" z="0.1" />
+              <Waypoint x="-60.82472" y="10.2806635" z="0.1" />
+              <Waypoint x="-59.2184143" y="18.56648" z="0.1" />
+              <Waypoint x="-50.4016762" y="20.4091415" z="0.1" />
+              <Waypoint x="-70.74698" y="19.5628471" z="0.1" />
+              <Waypoint x="-80.75662" y="9.811927" z="0.1" />
+              <Waypoint x="-89.92818" y="19.3758335" z="0.1" />
+            </Waypoints>
+          </LawWaypoints>
+        </controlLaw>
+      </TrialRegularAgent>
+    </agent>
+  </agents>
+</Trial>

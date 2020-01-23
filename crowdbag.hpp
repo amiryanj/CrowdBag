@@ -19,7 +19,18 @@ class CrowdSim
 {
 private:
     Simulation* sim;
+	
+	float RVO_th = 5;
+    float RVO_nd = 100;
+	
+	float POWERLAW_k = 1.5f;
+	float POWERLAW_th = 3.f;
 
+	float POWERLAW_ksi = 0.5f;
+	float POWERLAW_m = 2.0f;
+	float POWERLAW_nd = 100.f;
+	float POWERLAW_ma = 0.5f; 
+	
 public:
     CrowdSim(std::string model_name) {
         if(!model_name.compare("boids")) {
@@ -218,6 +229,46 @@ public:
     inline void setTime(float s_time = 0) {
         sim->g_time = s_time;
     }
+	
+	inline void setAgent(int s_indPedestrian, float posX, float posY, float goalX, float goalY, float radius, float prefSpeed) {
+		sim->setPosition(s_indPedestrian, posX, posY);
+        sim->setGoal(s_indPedestrian, goalX, goalY);
+		
+		SimulationBoids* boids = dynamic_cast<SimulationBoids*>(sim);
+        SimulationHelbing* helbing = dynamic_cast<SimulationHelbing*>(sim);
+        SimulationPowerLaw* powerlaw = dynamic_cast<SimulationPowerLaw*>(sim);
+        SimulationRVO2* rvo = dynamic_cast<SimulationRVO2*>(sim);
+
+        if(boids) {
+			boids->setAgentRadius(s_indPedestrian, radius);
+			boids->setAgentSpeed(s_indPedestrian, prefSpeed);
+		}
+        else if (helbing) {
+			helbing->setAgentRadius(s_indPedestrian, radius);
+			helbing->setAgentSpeed(s_indPedestrian, prefSpeed);
+		}
+        else if (powerlaw) {
+			powerlaw->setAgentRadius(s_indPedestrian, radius);
+			powerlaw->setAgentPrefSpeed(s_indPedestrian, prefSpeed);
+			powerlaw->setAgentNeighborDist(s_indPedestrian, POWERLAW_nd);
+			powerlaw->setAgentT0(s_indPedestrian, POWERLAW_th);
+			powerlaw->setAgentK(s_indPedestrian, POWERLAW_k);
+			powerlaw->setAgentKsi(s_indPedestrian, POWERLAW_ksi);
+			powerlaw->setAgentM(s_indPedestrian, POWERLAW_m);
+			powerlaw->setAgentMaxAcceleration(s_indPedestrian, POWERLAW_ma);
+		}
+        else if (rvo) {
+			rvo->setAgentRadius(s_indPedestrian, radius);
+			rvo->setAgentMaxSpeed(s_indPedestrian, prefSpeed);
+			rvo->setAgentNeighborDist(s_indPedestrian, RVO_nd);
+            rvo->setAgentTimeHorizon(s_indPedestrian, RVO_th);
+            rvo->setAgentTimeHorizonObst(s_indPedestrian, RVO_th);
+		}
+        else 
+			std::cerr << "sim is not initiated correctly" << std::endl;
+
+		
+	}
 
     void doStep(float s_dt = 0.01f) {
         sim->doStep(s_dt);

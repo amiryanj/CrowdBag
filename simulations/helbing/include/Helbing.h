@@ -8,7 +8,7 @@
 namespace helbing {
 
 const float SOCIAL_SCALING = 2000.f; // 2000 N
-const float AGENT_RADIUS_MAX = 0.35f; // 0.7m diamater
+const float AGENT_RADIUS_MAX = 0.3f; // 0.7m diamater
 const float AGENT_REACTION_TIME = 0.5f; // 0.5s
 const float REPULSE_SPRING_CONSTANT = 120000.f; // 2.4e4 kg/sec^2
 const float COEFF_SLIDING_FRICTION = 240000.f;
