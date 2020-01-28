@@ -1,8 +1,19 @@
 cmake_minimum_required(VERSION 3.5)
-project (crowd_bag)
+project (crowdbag)
 set (CMAKE_CXX_STANDARD 11)
 set (PYTHON3 FALSE CACHE BOOL "Using python3 instead of python2")
-set (WITH_ROS FALSE CACHE BOOL "a ROS interface")
+set (WITH_ROS FALSE)
+
+if(CATKIN_DEVEL_PREFIX)
+    set (WITH_ROS TRUE)
+    message("[CrowdBag] Using Catkin !!!!")
+endif()
+
+if (WITH_ROS)
+    catkin_package()
+    message("[CrowdBag] Using Catkin !!!!")
+endif()
+
 if (UNIX AND NOT APPLE)
     message("Python Version Suffix:  ${PYTHON_VERSION_SUFFIX}")
     # if (PYTHON_VERSION_MAJOR EQUAL 3)
