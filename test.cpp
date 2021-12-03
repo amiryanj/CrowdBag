@@ -1,9 +1,21 @@
-#include "crowdbag.hpp"
+//#include "crowdbag.hpp"
+#include "xml_loader.hpp"
 #include <iostream>
 
-int main()
+class TESTClass
 {
+    CrowdSim* sim;
+};
+
+int main(int argc, char** argv)
+{
+    XMLLoader l;
+    if(argc > 1) {
+        l.load(argv[1]);
+    }
+
     CrowdSim sim("boids");
+    CrowdSim *sim2 = l.load("boids");
 
     int N = 10;
     sim.init(N);

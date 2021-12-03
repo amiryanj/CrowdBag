@@ -9,11 +9,6 @@ if(CATKIN_DEVEL_PREFIX)
     message("[CrowdBag] Using Catkin !!!!")
 endif()
 
-if (WITH_ROS)
-    catkin_package()
-    message("[CrowdBag] Using Catkin !!!!")
-endif()
-
 if (UNIX AND NOT APPLE)
     message("Python Version Suffix:  ${PYTHON_VERSION_SUFFIX}")
     # if (PYTHON_VERSION_MAJOR EQUAL 3)
@@ -90,33 +85,41 @@ PYTHON_ADD_MODULE(crowdbag crowdbag_py.cpp crowdbag.hpp
     )
 target_link_libraries(crowdbag helbing rvo2 powerlaw)
 
-add_executable(testcpp test.cpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES})
+add_executable(testcpp test.cpp xml_loader.hpp crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES} ${THIRD_PARTY_SOURCES})
 target_link_libraries(testcpp helbing rvo2 powerlaw)
 
 if (WITH_ROS) # when user wants to install ros
     ## Find catkin and any catkin packages
+    message("[CrowdBag] Using Catkin !!!!")
     message("===== Compile with ROS =====")
-#    find_package(catkin REQUIRED )
-    find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs genmsg)
+    find_package(catkin REQUIRED COMPONENTS roscpp rospy genmsg std_msgs geometry_msgs)
 
     include_directories(${catkin_INCLUDE_DIRS})
     link_directories(${catkin_LIBRARY_DIRS})
 
     ## Declare ROS messages and services
-#    add_service_files(DIRECTORY srv FILES AddTwoInts.srv)
-#    add_message_files(DIRECTORY msg FILES Num.msg)
+    add_message_files(DIRECTORY msg FILES SimPedestrianState.msg CrowdState.msg)
+    add_service_files(DIRECTORY srv FILES SimulateCrowd.srv)
 
     ## Generate added messages and services
-#    generate_messages(DEPENDENCIES std_msgs)
+    generate_messages(DEPENDENCIES std_msgs geometry_msgs)
 
     ## Declare a catkin package
-#    catkin_package(CATKIN_DEPENDS message_runtime std_msgs)
+    catkin_package(CATKIN_DEPENDS message_runtime std_msgs geometry_msgs)
+    # catkin_package()
 
     add_executable(crowdbag_node crowdbag_node.cpp
         crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES} ${THIRD_PARTY_SOURCES}
         )
     target_link_libraries(crowdbag_node
         ${catkin_LIBRARIES} helbing rvo2 powerlaw)
+
+    add_executable(crowdbag_service crowdbag_server.cpp
+        crowdbag.hpp ${CORE_SOURCES} ${MODELS_SOURCES} ${THIRD_PARTY_SOURCES})
+    target_link_libraries(crowdbag_service
+        ${catkin_LIBRARIES} helbing rvo2 powerlaw)
+
+
     #add_dependencies()
 endif()
 

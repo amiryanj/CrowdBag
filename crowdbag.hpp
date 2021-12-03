@@ -14,7 +14,6 @@ using namespace craal;
 
 namespace py = boost::python;
 
-
 class CrowdSim
 {
 private:
